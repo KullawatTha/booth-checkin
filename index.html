@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stamp Booth</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ffd6e0, #d6f0ff);
+      text-align: center;
+      padding: 20px;
+    }
+    h1 { color: #ff6b9a; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      max-width: 400px;
+      margin: auto;
+    }
+    .booth {
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      font-size: 18px;
+    }
+    .checked {
+      background: #c8ffd4;
+    }
+    .progress {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<h1>☕ สะสมแต้มบูท ☕</h1>
+
+<div class="grid">
+  <div class="booth" id="A">Booth A</div>
+  <div class="booth" id="B">Booth B</div>
+  <div class="booth" id="C">Booth C</div>
+  <div class="booth" id="D">Booth D</div>
+  <div class="booth" id="E">Booth E</div>
+</div>
+
+<div class="progress" id="progress">0 / 5</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const booth = params.get("booth");
+
+  let visited = JSON.parse(localStorage.getItem("visited") || "[]");
+
+  if (booth && !visited.includes(booth)) {
+    visited.push(booth);
+    localStorage.setItem("visited", JSON.stringify(visited));
+  }
+
+  let count = 0;
+  visited.forEach(b => {
+    const el = document.getElementById(b);
+    if (el) {
+      el.classList.add("checked");
+      el.innerHTML += " ✔";
+      count++;
+    }
+  });
+
+  document.getElementById("progress").innerText = `${count} / 5`;
+</script>
+
+</body>
+</html>
