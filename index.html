@@ -34,6 +34,17 @@
       font-size: 20px;
       color: #333;
     }
+    .reset-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      background: #ff6b9a;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
   </style>
 </head>
 <body>
@@ -50,6 +61,8 @@
 
 <div class="progress" id="progress">0 / 5</div>
 
+<button class="reset-btn" onclick="resetProgress()">🔄 รีเซ็ต</button>
+
 <script>
   const params = new URLSearchParams(window.location.search);
   const booth = params.get("booth");
@@ -61,17 +74,32 @@
     localStorage.setItem("visited", JSON.stringify(visited));
   }
 
-  let count = 0;
-  visited.forEach(b => {
-    const el = document.getElementById(b);
-    if (el) {
-      el.classList.add("checked");
-      el.innerHTML += " ✔";
-      count++;
-    }
-  });
+  function render() {
+    let count = 0;
+    document.querySelectorAll('.booth').forEach(el => {
+      el.classList.remove('checked');
+      el.innerHTML = el.id.replace(/([A-Z])/, 'Booth $1');
+    });
 
-  document.getElementById("progress").innerText = `${count} / 5`;
+    visited.forEach(b => {
+      const el = document.getElementById(b);
+      if (el) {
+        el.classList.add("checked");
+        el.innerHTML += " ✔";
+        count++;
+      }
+    });
+
+    document.getElementById("progress").innerText = `${count} / 5`;
+  }
+
+  function resetProgress() {
+    localStorage.removeItem("visited");
+    visited = [];
+    render();
+  }
+
+  render();
 </script>
 
 </body>
