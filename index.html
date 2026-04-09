@@ -12,28 +12,33 @@
       padding: 20px;
     }
     h1 { color: #ff6b9a; }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-      max-width: 400px;
+      grid-template-columns: repeat(3, 1fr); /* 3 ช่อง */
+      gap: 12px;
+      max-width: 500px;
       margin: auto;
     }
+
     .booth {
       background: white;
-      padding: 20px;
+      padding: 15px;
       border-radius: 20px;
       box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-      font-size: 18px;
+      font-size: 16px;
     }
+
     .checked {
       background: #c8ffd4;
     }
+
     .progress {
       margin-top: 20px;
       font-size: 20px;
       color: #333;
     }
+
     .reset-btn {
       margin-top: 20px;
       padding: 10px 20px;
@@ -57,9 +62,17 @@
   <div class="booth" id="C">Booth C</div>
   <div class="booth" id="D">Booth D</div>
   <div class="booth" id="E">Booth E</div>
+  <div class="booth" id="F">Booth F</div>
+  <div class="booth" id="G">Booth G</div>
+  <div class="booth" id="H">Booth H</div>
+  <div class="booth" id="I">Booth I</div>
+  <div class="booth" id="J">Booth J</div>
+  <div class="booth" id="K">Booth K</div>
+  <div class="booth" id="L">Booth L</div>
+  <div class="booth" id="M">Booth M</div>
 </div>
 
-<div class="progress" id="progress">0 / 5</div>
+<div class="progress" id="progress">0 / 13</div>
 
 <button class="reset-btn" onclick="resetProgress()">🔄 รีเซ็ต</button>
 
@@ -76,9 +89,10 @@
 
   function render() {
     let count = 0;
+
     document.querySelectorAll('.booth').forEach(el => {
       el.classList.remove('checked');
-      el.innerHTML = el.id.replace(/([A-Z])/, 'Booth $1');
+      el.innerHTML = "Booth " + el.id;
     });
 
     visited.forEach(b => {
@@ -90,7 +104,7 @@
       }
     });
 
-    document.getElementById("progress").innerText = `${count} / 5`;
+    document.getElementById("progress").innerText = `${count} / 13`;
   }
 
   function resetProgress() {
