@@ -1,119 +1,132 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stamp Booth</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #ffd6e0, #d6f0ff);
-      text-align: center;
-      padding: 20px;
-    }
-    h1 { color: #ff6b9a; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stamp Booth</title>
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr); /* 3 ช่อง */
-      gap: 12px;
-      max-width: 500px;
-      margin: auto;
-    }
+<style>
+body {
+  font-family: Arial;
+  background: linear-gradient(135deg, #ffd6e0, #d6f0ff);
+  text-align: center;
+  padding: 20px;
+}
 
-    .booth {
-      background: white;
-      padding: 15px;
-      border-radius: 20px;
-      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-      font-size: 16px;
-    }
+h1 { color: #ff6b9a; }
 
-    .checked {
-      background: #c8ffd4;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  max-width: 400px;
+  margin: auto;
+}
 
-    .progress {
-      margin-top: 20px;
-      font-size: 20px;
-      color: #333;
-    }
+.booth {
+  background: white;
+  padding: 15px;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
 
-    .reset-btn {
-      margin-top: 20px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 20px;
-      background: #ff6b9a;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-  </style>
+.booth img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.checked {
+  background: #c8ffd4;
+}
+
+.progress {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.reset-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background: #ff6b9a;
+  color: white;
+}
+</style>
 </head>
+
 <body>
 
-<h1>☕ สะสมแต้มบูท ☕</h1>
+<h1>☕ สะสมแต้ม ☕</h1>
 
 <div class="grid">
-  <div class="booth" id="A">Booth A</div>
-  <div class="booth" id="B">Booth B</div>
-  <div class="booth" id="C">Booth C</div>
-  <div class="booth" id="D">Booth D</div>
-  <div class="booth" id="E">Booth E</div>
-  <div class="booth" id="F">Booth F</div>
-  <div class="booth" id="G">Booth G</div>
-  <div class="booth" id="H">Booth H</div>
-  <div class="booth" id="I">Booth I</div>
-  <div class="booth" id="J">Booth J</div>
-  <div class="booth" id="K">Booth K</div>
-  <div class="booth" id="L">Booth L</div>
-  <div class="booth" id="M">Booth M</div>
+
+  <div class="booth" id="seahorse">
+    <img src="logo1.png">
+    <div>The secret life of seahorses</div>
+  </div>
+
+  <div class="booth" id="plague">
+    <img src="logo2.png">
+    <div>Plague escape</div>
+  </div>
+
+  <div class="booth" id="mulberry">
+    <img src="logo3.png">
+    <div>The Craft of Mulberry</div>
+  </div>
+
+  <div class="booth" id="costume">
+    <img src="logo4.png">
+    <div>เครื่องแต่งแห่ยุคศึก</div>
+  </div>
+
 </div>
 
-<div class="progress" id="progress">0 / 13</div>
+<div class="progress" id="progress">0 / 4</div>
 
 <button class="reset-btn" onclick="resetProgress()">🔄 รีเซ็ต</button>
 
 <script>
-  const params = new URLSearchParams(window.location.search);
-  const booth = params.get("booth");
+const params = new URLSearchParams(window.location.search);
+const booth = params.get("booth");
 
-  let visited = JSON.parse(localStorage.getItem("visited") || "[]");
+let visited = JSON.parse(localStorage.getItem("visited") || "[]");
 
-  if (booth && !visited.includes(booth)) {
-    visited.push(booth);
-    localStorage.setItem("visited", JSON.stringify(visited));
-  }
+if (booth && !visited.includes(booth)) {
+  visited.push(booth);
+  localStorage.setItem("visited", JSON.stringify(visited));
+}
 
-  function render() {
-    let count = 0;
+function render() {
+  let count = 0;
 
-    document.querySelectorAll('.booth').forEach(el => {
-      el.classList.remove('checked');
-      el.innerHTML = "Booth " + el.id;
-    });
+  document.querySelectorAll('.booth').forEach(el => {
+    el.classList.remove('checked');
+  });
 
-    visited.forEach(b => {
-      const el = document.getElementById(b);
-      if (el) {
-        el.classList.add("checked");
-        el.innerHTML += " ✔";
-        count++;
-      }
-    });
+  visited.forEach(b => {
+    const el = document.getElementById(b);
+    if (el) {
+      el.classList.add("checked");
+      count++;
+    }
+  });
 
-    document.getElementById("progress").innerText = `${count} / 13`;
-  }
+  document.getElementById("progress").innerText = `${count} / 4`;
+}
 
-  function resetProgress() {
-    localStorage.removeItem("visited");
-    visited = [];
-    render();
-  }
-
+function resetProgress() {
+  localStorage.removeItem("visited");
+  visited = [];
   render();
+}
+
+render();
 </script>
 
 </body>
