@@ -25,14 +25,14 @@ body::before {
 
 h1 {
   color: #a78bfa;
-  text-shadow: 0 0 15px #a78bfa;
+  text-shadow: 0 0 10px #a78bfa;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  max-width: 900px;
+  max-width: 800px;
   margin: auto;
 }
 
@@ -45,34 +45,11 @@ h1 {
   box-shadow: 0 0 15px rgba(167,139,250,0.3);
 }
 
-/* ===== QR BOX ===== */
-.qr-box {
-  position: relative;
-  width: 150px;
-  height: 150px;
-  margin: auto;
-  border-radius: 15px;
-  overflow: hidden;
-  background: white;
-}
-
-/* โลโก้พื้นหลัง */
-.bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.25;
-  filter: blur(1.5px);
-}
-
-/* QR ด้านบน */
-.qr {
-  position: relative;
-  width: 100%;
+img {
+  width: 130px;
   border-radius: 10px;
   background: white;
-  padding: 8px;
+  padding: 5px;
 }
 
 .name {
@@ -85,125 +62,73 @@ h1 {
 
 <body>
 
-<h1>🌌 Scan QR เพื่อสะสมแต้ม 🌌</h1>
+<h1>🌌 Scan QR เพื่อเช็คอิน 🌌</h1>
 
 <div class="grid">
 
-<!-- 1 -->
 <div class="item">
-  <div class="qr-box">
-    <img class="bg" src="logo1.png">
-    <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=seahorse">
-  </div>
-  <div class="name">The secret life of seahorses</div>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=seahorse">
+<div class="name">The secret life of seahorses</div>
 </div>
 
-<!-- 2 -->
 <div class="item">
-  <div class="qr-box">
-    <img class="bg" src="logo2.png">
-    <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=plague">
-  </div>
-  <div class="name">Plague escape</div>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=plague">
+<div class="name">Plague escape</div>
 </div>
 
-<!-- 3 -->
 <div class="item">
-  <div class="qr-box">
-    <img class="bg" src="logo3.png">
-    <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=mulberry">
-  </div>
-  <div class="name">The Craft of Mulberry</div>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=mulberry">
+<div class="name">The Craft of Mulberry</div>
 </div>
 
-<!-- 4 -->
 <div class="item">
-  <div class="qr-box">
-    <img class="bg" src="logo4.png">
-    <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=costume">
-  </div>
-  <div class="name">เครื่องแต่งแห่ยุคศึก</div>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=costume">
+<div class="name">เครื่องแต่งแห่งยุคศึก</div>
 </div>
 
-<!-- 5 -->
 <div class="item">
-  <div class="qr-box">
-    <img class="bg" src="logo5.png">
-    <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=gold">
-  </div>
-  <div class="name">Gold jewelry Stories</div>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=gold">
+<div class="name">Gold jewelry Stories</div>
 </div>
 
-<!-- 6 -->
 <div class="item">
-  <div class="qr-box">
-    <img class="bg" src="logo6.png">
-    <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=choco">
-  </div>
-  <div class="name">Chocolate Making</div>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=choco">
+<div class="name">Chocolate Making</div>
 </div>
 
-<!-- 7 -->
 <div class="item">
-  <div class="qr-box">
-    <img class="bg" src="logo7.png">
-    <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=body">
-  </div>
-  <div class="name">Body Language</div>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=body">
+<div class="name">Body Language</div>
 </div>
 
-<!-- 8 -->
 <div class="item">
-  <div class="qr-box">
-    <img class="bg" src="logo8.png">
-    <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=soccer">
-  </div>
-  <div class="name">Make a Soccer Ball</div>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=soccer">
+<div class="name">Make a Soccer Ball</div>
 </div>
 
-<!-- 9 -->
 <div class="item">
-  <div class="qr-box">
-    <img class="bg" src="logo9.png">
-    <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=blue">
-  </div>
-  <div class="name">Alone in the Blue</div>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=blue">
+<div class="name">Alone in the Blue</div>
 </div>
 
-<!-- 10 -->
 <div class="item">
-  <div class="qr-box">
-    <img class="bg" src="logo10.png">
-    <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=roblox">
-  </div>
-  <div class="name">YNAC ROBLOX</div>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=roblox">
+<div class="name">YNAC ROBLOX</div>
 </div>
 
-<!-- 11 -->
 <div class="item">
-  <div class="qr-box">
-    <img class="bg" src="logo11.png">
-    <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=baby">
-  </div>
-  <div class="name">The Baby Piercing</div>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=baby">
+<div class="name">The Baby Piercing</div>
 </div>
 
-<!-- 12 -->
 <div class="item">
-  <div class="qr-box">
-    <img class="bg" src="logo12.png">
-    <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=jt">
-  </div>
-  <div class="name">J&T</div>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=jt">
+<div class="name">J&T</div>
 </div>
 
-<!-- 13 -->
 <div class="item">
-  <div class="qr-box">
-    <img class="bg" src="logo13.png">
-    <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=spook">
-  </div>
-  <div class="name">ESCAPE FROM THAI SPOOK MUSEUM</div>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kullawattha.github.io/booth-checkin/?booth=spook">
+<div class="name">ESCAPE FROM THAI SPOOK MUSEUM</div>
 </div>
 
 </div>
